@@ -5,7 +5,7 @@ import android.os.Bundle
 
 class MainActivity : AppCompatActivity() {
 
-    val foodtruck = listOf(
+    val foodtrucks = listOf(
         FoodTruck(
             0,
             "Authentic Street Taco",
@@ -66,6 +66,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val adapter = RecyclerViewAdapter(foodtrucks)
     }
 
 
