@@ -12,7 +12,7 @@ class FoodTruckDetail : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_food_truck_detail)
+//        setContentView(R.layout.activity_food_truck_detail)
 
         binding = ActivityFoodTruckDetailBinding.inflate(layoutInflater)
         var view = binding.root
@@ -22,6 +22,7 @@ class FoodTruckDetail : AppCompatActivity() {
 
 //        val intent = Intent(Intent.ACTION_VIEW, url)
 //        startActivity(intent);
+
     }
 
 
