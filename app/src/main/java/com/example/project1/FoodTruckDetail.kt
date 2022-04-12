@@ -22,7 +22,8 @@ class FoodTruckDetail : AppCompatActivity() {
 
 //        val intent = Intent(Intent.ACTION_VIEW, url)
 //        startActivity(intent);
-
+        val foodtruck = intent.getParcelableExtra<FoodTruck>("Name")
+        binding.textView2.text = foodtruck!!.name
     }
 
 

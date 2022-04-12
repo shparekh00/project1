@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -39,9 +41,6 @@ android {
                 srcDirs 'src/main/java', 'src/main/java/2'
             }
         }
-    }
-    buildFeatures {
-        viewBinding = true
     }
 }
 

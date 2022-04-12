@@ -11,7 +11,8 @@ import com.example.project1.databinding.ActivityMainBinding
 import com.example.project1.databinding.FoodTruckItemBinding
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding: FoodTruckItemBinding
+    private lateinit var binding: ActivityMainBinding
+
     val foodtrucks = listOf(
         FoodTruck(
             0,
@@ -72,7 +73,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = FoodTruckItemBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         var view = binding.root
         setContentView(view)
 
@@ -81,11 +82,12 @@ class MainActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        binding.foodImageButton.setOnClickListener {
+
+        binding.recyclerView.setOnClickListener {
             var intent = Intent(this, FoodTruckDetail::class.java)
+            intent.putExtra("Name", foodtrucks[1])
             startActivity(intent)
         }
-
     }
 
 
