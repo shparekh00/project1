@@ -31,10 +31,14 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="48dp"
         android:text="Name"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="52dp"
-        tools:layout_editor_absoluteY="229dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.006"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/textView3"
@@ -66,7 +70,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="SpeakableTextPresentCheck">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -78,16 +83,19 @@
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_baseline_access_time_24"
-        tools:layout_editor_absoluteX="52dp"
-        tools:layout_editor_absoluteY="301dp" />
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:srcCompat="@drawable/ic_baseline_access_time_24" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_baseline_location_on_24"
-        tools:layout_editor_absoluteX="52dp"
-        tools:layout_editor_absoluteY="265dp" />
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:srcCompat="@drawable/ic_baseline_location_on_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

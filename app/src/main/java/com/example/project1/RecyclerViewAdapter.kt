@@ -26,10 +26,27 @@ class RecyclerViewAdapter(private var foodtrucks: List<FoodTruck>)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        val foodTruck = foodtrucks[position]
+
+        holder.apply{
+            titleTextView.text = foodTruck.name
+            locationTextView.text = foodTruck.location
+            timeTextView.text = foodTruck.open_time
+            foodImageView.setImageResource(when (foodTruck.image){
+                0 -> R.drawable.streettacos
+                1 -> R.drawable.buckhorngrill
+                2 -> R.drawable.shahs
+                3 -> R.drawable.starginger
+                4 -> R.drawable.banginbowls
+                5 -> R.drawable.heftygyros
+                else -> throw Exception("No image found!")
+            })
+
+
+
+
+        }
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun getItemCount() = foodtrucks.size
 }

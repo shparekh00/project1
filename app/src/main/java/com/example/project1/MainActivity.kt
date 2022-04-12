@@ -1,7 +1,13 @@
 package com.example.project1
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageButton
+import androidx.core.view.get
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.project1.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
@@ -62,12 +68,21 @@ class MainActivity : AppCompatActivity() {
             "https://www.labanginbowls.com/"
         ),
     )
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         val adapter = RecyclerViewAdapter(foodtrucks)
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
+        //val button = findViewById<ImageButton>(R.id.foodImageButton)
+
+
+
     }
 
 
