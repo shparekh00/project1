@@ -1,11 +1,11 @@
 package com.example.project1
 
-data class FoodTruck (
-    var id: Int,
-    var name: String,
-    var image: Int,
-    var location:String,
-    var open_time: String,
-    var description: String,
-    var website_link: String,
+data class FoodTruck(
+    val id: Int,
+    val name: String,
+    val image: Int,
+    val location: String,
+    val open_time: String,
+    val description: String,
+    val website_link: String,
 )

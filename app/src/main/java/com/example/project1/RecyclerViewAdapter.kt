@@ -1,12 +1,18 @@
 package com.example.project1
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.project1.databinding.ActivityMainBinding
+import com.example.project1.databinding.FoodTruckItemBinding
+import com.example.project1.databinding.FoodTruckItemBinding.inflate
 
 class RecyclerViewAdapter(private var foodtrucks: List<FoodTruck>)
     : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
@@ -15,17 +21,24 @@ class RecyclerViewAdapter(private var foodtrucks: List<FoodTruck>)
         val titleTextView : TextView = itemView.findViewById(R.id.name)
         val locationTextView : TextView = itemView.findViewById(R.id.location)
         val timeTextView : TextView = itemView.findViewById(R.id.open_time)
-        val foodImageView : ImageButton = itemView.findViewById(R.id.foodImageButton)
+        val foodImageView : ImageView = itemView.findViewById<ImageButton?>(R.id.foodImage)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater
             .from(parent.context)
             .inflate(R.layout.food_truck_item, parent, false)
+//        view.setOnClickListener{
+//            val intent = Intent(it.context, FoodTruckDetail::class.java)
+//            //intent.putExtra("foodtrucks", foodtrucks)
+//            startActivity(it.context, intent, null)
+//        }
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
         val foodTruck = foodtrucks[position]
 
         holder.apply{
@@ -42,11 +55,20 @@ class RecyclerViewAdapter(private var foodtrucks: List<FoodTruck>)
                 else -> throw Exception("No image found!")
             })
 
-
-
-
         }
+        holder.itemView.setOnClickListener{
+            val intent = Intent(it.context, FoodTruckDetail::class.java)
+            intent.putExtra("name", foodTruck.name)
+            intent.putExtra("location", foodTruck.location)
+            intent.putExtra("time", foodTruck.open_time)
+            intent.putExtra("website_link", foodTruck.website_link)
+            intent.putExtra("description", foodTruck.description)
+            intent.putExtra("image", foodTruck.image)
+            startActivity(it.context, intent, null)
+       }
     }
+
+
 
     override fun getItemCount() = foodtrucks.size
 }
