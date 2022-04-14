@@ -1,6 +1,5 @@
 package com.example.project1
 
-import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -10,9 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.example.project1.databinding.ActivityMainBinding
-import com.example.project1.databinding.FoodTruckItemBinding
-import com.example.project1.databinding.FoodTruckItemBinding.inflate
+
 
 class RecyclerViewAdapter(private var foodtrucks: List<FoodTruck>)
     : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
@@ -29,11 +26,6 @@ class RecyclerViewAdapter(private var foodtrucks: List<FoodTruck>)
         val view = LayoutInflater
             .from(parent.context)
             .inflate(R.layout.food_truck_item, parent, false)
-//        view.setOnClickListener{
-//            val intent = Intent(it.context, FoodTruckDetail::class.java)
-//            //intent.putExtra("foodtrucks", foodtrucks)
-//            startActivity(it.context, intent, null)
-//        }
         return ViewHolder(view)
     }
 
